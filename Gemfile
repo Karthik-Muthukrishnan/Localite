@@ -8,7 +8,15 @@ gem 'rails', '4.0.0'
 # MySQL for development and test environments
 group :development, :test do
   gem 'mysql2'
+  # test suite
   gem 'rspec-rails', '2.13.1'
+  # Guard - For automated testing
+  gem 'guard-rspec', '2.5.0'
+  # Spork - To optimize automated testing 
+  # by forking the server processes to avoid restart of server everytime
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
 end
 
 group :test do
