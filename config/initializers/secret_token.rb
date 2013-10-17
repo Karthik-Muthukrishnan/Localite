@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Plocalite::Application.config.secret_key_base = '8b61d1b5d9e262b068fbcce7045a3c3ad61abd8e23a804aea057b62fe804ddb23490e5aea5d93d97d9e4f89b9012169433fcced6e4cc33bfaa9888502cff4412'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Plocalite::Application.config.secret_key_base = secure_token
