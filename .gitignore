@@ -15,6 +15,9 @@
 /log/*.log
 /tmp
 
+# compass directory
+app/assets/zplocalite/
+
 # Ignore other unneeded files.
 database.yml
 doc/
