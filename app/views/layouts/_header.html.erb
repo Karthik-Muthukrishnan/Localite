@@ -23,9 +23,25 @@
     <ul class="right">
       
       <li class="divider show-for-small"></li>
-      <li class="name">
-        <h1><a href="#">Sign In</a></h1>
-      </li>
+      <% if signed_in? %>
+
+        <li class="name"><%= link_to "Profile", current_user %></li>
+        <li class="name"><%= link_to "Sign out", signout_path, method: "delete" %></li>
+        
+        <!--    <li class="has-dropdown"><a href="#">Account </a>
+
+        <ul class="dropdown">
+          <li><label><%= link_to "Profile", current_user %></label></li>
+          <li><label><%= link_to "Sign out", signout_path, method: "delete" %></label></li>
+        </ul>
+      </li> -->
+          <% else %>
+            <li class="name">
+              <h1><%= link_to "Sign In", signin_path %></h1>
+          </li>
+        <% end %>
+
+
       <!--
       <li class="divider"></li>
       <li class="divider hide-for-small"></li>
