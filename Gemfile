@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 gem 'zurb-foundation', '4.3.2'
 gem 'compass-rails','1.0.3'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'will_paginate', '3.0.4'
+gem 'pageless-rails', github: 'rorlab/pageless-rails'
 
 
 # MySQL for development and test environments
@@ -20,6 +22,7 @@ group :development, :test do
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
+  gem 'faker', '1.1.2'
 end
 
 group :test do

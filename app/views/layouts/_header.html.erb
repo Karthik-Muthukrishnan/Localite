@@ -25,7 +25,9 @@
       <li class="divider show-for-small"></li>
       <% if signed_in? %>
 
-        <li class="name"><%= link_to "Profile", current_user %></li>
+        <li class="name"><%= link_to "Home", current_user %></li>
+        <li class="name"><%= link_to "Profile", edit_user_path(current_user) %></li>
+        <li class="name"><%= link_to "Users", users_path %></li>
         <li class="name"><%= link_to "Sign out", signout_path, method: "delete" %></li>
         
         <!--    <li class="has-dropdown"><a href="#">Account </a>
