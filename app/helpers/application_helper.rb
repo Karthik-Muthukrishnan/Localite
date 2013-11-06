@@ -9,6 +9,8 @@ module ApplicationHelper
     end
   end
 
+  
+
  def pageless(total_pages, url=nil, container=nil)
     opts = {
       :totalPages => total_pages,

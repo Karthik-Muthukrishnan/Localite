@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <p>
+    <strong id="following" class="stat">
+      <%= @user.bubbles.count %>
+    </strong>
+    following
+  </p>
+  <p>
+    <strong class = "stat">
+      <%= @user.posts.count %> 
+  </strong>
+  posts
+  </p>
+</div>

@@ -1,6 +1,26 @@
 Plocalite::Application.routes.draw do
   resources :users
+  resources :bubbles
+  resources :user_bubble_relations, only: [:create, :destroy]
+  resources :posts 
+
   resources :sessions, only: [:new, :create, :destroy]
+  
+  resources :users do
+    member do
+      get :bubbles
+    end
+  end
+ 
+  resources :bubbles do
+    member do
+      get :users
+    end
+  end
+
+
+
+
   root  'static_pages#home'
   match '/about',    to: 'static_pages#about',    via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'

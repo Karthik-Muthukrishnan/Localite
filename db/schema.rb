@@ -11,7 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131021015421) do
+ActiveRecord::Schema.define(version: 20131106051054) do
+
+  create_table "bubbles", force: true do |t|
+    t.string   "pincode",    limit: 10
+    t.string   "name"
+    t.string   "zone"
+    t.string   "district"
+    t.string   "state"
+    t.string   "active_ind", limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "district_lookup", id: false, force: true do |t|
+    t.string "pin",      limit: 10
+    t.string "district"
+    t.string "state"
+  end
+
+  create_table "pincode_lookup", id: false, force: true do |t|
+    t.string "area_name"
+    t.string "pincode",           limit: 10
+    t.string "state",             limit: 50
+    t.string "original_district", limit: 100
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "bubble_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["user_id", "bubble_id", "created_at"], name: "index_posts_on_user_id_and_bubble_id_and_created_at", using: :btree
+
+  create_table "user_bubble_relations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "bubble_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

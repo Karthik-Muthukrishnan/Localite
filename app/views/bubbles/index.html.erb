@@ -1,0 +1,8 @@
+<% provide(:title, 'Bubbles') %>
+	<h1>All Bubbles</h1>
+
+<ul>
+  <%= render partial: 'bubble', collection: @bubbles_all %>
+</ul>
+<%= will_paginate @bubbles_all%>
+
