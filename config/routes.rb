@@ -3,6 +3,7 @@ Plocalite::Application.routes.draw do
   resources :bubbles
   resources :user_bubble_relations, only: [:create, :destroy]
   resources :posts 
+  resources :post_likes, only: [:create, :destroy]
 
   resources :sessions, only: [:new, :create, :destroy]
   

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 	has_many :UserBubbleRelations, foreign_key: "user_id", dependent: :destroy
   has_many :bubbles, through: :UserBubbleRelations, source: :bubble
   has_many :posts, foreign_key: "user_id", dependent: :destroy
+  has_many :PostLikes, foreign_key: "user_id", dependent: :destroy
+  
   
 
 
@@ -26,6 +28,13 @@ class User < ActiveRecord::Base
 
     def feed
       Post.from_users_followed_by(self)
+    end
+
+    
+    def alreadyLike?(post)
+      PostLike.exists?(['user_id = ? and post_id = ?', 
+                  self.id, post.id])
+      
     end
 
   	private

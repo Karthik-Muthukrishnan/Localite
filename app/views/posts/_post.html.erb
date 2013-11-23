@@ -10,6 +10,13 @@
       <%= link_to post.user.name, post.user %>
     </span>
   <span class="content"><%= wrap(post.content) %></span>
+  <div id="post1">
+    <% if @current_user.alreadyLike?(post) %>
+      <%= render 'posts/nolike', post: post %>
+    <% else %>
+      <%= render 'posts/like', post: post %>
+    <% end %>
+ </div>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>

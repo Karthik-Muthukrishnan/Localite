@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106051054) do
+ActiveRecord::Schema.define(version: 20131107050502) do
 
   create_table "bubbles", force: true do |t|
     t.string   "pincode",    limit: 10
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20131106051054) do
     t.string "state",             limit: 50
     t.string "original_district", limit: 100
   end
+
+  create_table "post_likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_likes", ["post_id"], name: "index_post_likes_on_post_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "content"

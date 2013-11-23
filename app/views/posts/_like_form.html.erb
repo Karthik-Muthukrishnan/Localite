@@ -1,0 +1,5 @@
+<% if @current_user.alreadyLike?(post) %>
+      <%= render 'nolike' %>
+<% else %>
+      <%= render 'like' %>
+<% end %>

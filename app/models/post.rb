@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
 	
   belongs_to :bubble
   belongs_to :user
+  has_many :PostLike, foreign_key: "post_id", dependent: :destroy
   
   validates :content, presence: true, length: { maximum: 255 }
   validates :user_id, presence: true
