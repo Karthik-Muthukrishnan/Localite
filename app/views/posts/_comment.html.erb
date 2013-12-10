@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="large-2 columns small-3">
+	<%= link_to gravatar_for(comment.user,size: 32), comment.user %>
+  </div>  
+  <div class="large-10 columns"><p>  <strong>
+      <%= link_to comment.user.name, comment.user %>
+    </strong>
+  <%= wrap(comment.content) %>
+  </p>
+  <div id="post1">
+   <ul class = "inline-list">
+      <li>
+    <% if @current_user.alreadyLike?(comment) %>
+      <%= render 'posts/nolike', post: comment %>
+    <% else %>
+      <%= render 'posts/like', post: comment %>
+    <% end %>
+  </li>
+</ul>
+ </div>
+  <span class="timestamp">
+    Commented <%= time_ago_in_words(comment.created_at) %> ago.
+  </span>
+  <% if current_user?(comment.user) %>
+    <%= link_to "delete", comment, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: comment.content %>
+  <% end %>
+</div>
+</div>

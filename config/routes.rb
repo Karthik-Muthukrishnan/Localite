@@ -19,6 +19,11 @@ Plocalite::Application.routes.draw do
     end
   end
 
+  resources :posts do
+    member do
+      get :post_comments
+    end
+  end
 
 
 

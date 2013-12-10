@@ -1,9 +1,10 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(current_user.posts.build(bubble_id: @bubble.id, comment_ind: 0)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new post..." %>
     
     <%= f.hidden_field :bubble_id%>
+    <%= f.hidden_field :comment_ind%>
   </div>
   <div>
    <%= f.submit "Post", class: "btn btn-small btn-primary" %>

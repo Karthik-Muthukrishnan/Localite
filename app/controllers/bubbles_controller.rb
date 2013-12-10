@@ -9,7 +9,7 @@ class BubblesController < ApplicationController
   
   def show
     @bubble = Bubble.find(params[:id])
-    @posts = @bubble.posts.paginate(page: params[:page])
+    @posts = @bubble.posts.parentpost.paginate(page: params[:page])
     @post = @bubble.posts.build if signed_in?
     @bubbles = current_user.bubbles
   end
