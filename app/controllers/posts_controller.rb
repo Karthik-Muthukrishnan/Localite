@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :correct_user,   only: :destroy
 
   def create
-    if params[:post][:comment_ind] == false
+    if params[:post][:comment_ind] == "0"
       @bubble = Bubble.find(params[:post][:bubble_id])
       
       @postn = current_user.posts.build(bubble_id: @bubble.id, 

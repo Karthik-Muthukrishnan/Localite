@@ -1,4 +1,4 @@
 <%= form_for(current_user.PostLikes.find_by_post_id(post.id),
              html: { method: :delete }) do |f| %>
-  <%= f.submit "Like", class: "medium button radius secondary" %>
+  <%= f.submit "+1", class: "small button radius secondary" %>
 <% end %>

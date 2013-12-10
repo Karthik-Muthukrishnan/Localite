@@ -16,15 +16,10 @@
       <%= render 'posts/like', post: comment %>
     <% end %>
   </li>
+  <li>
+    <%= render "shared/comment_stat", post: comment %>
+  </li>
 </ul>
  </div>
-  <span class="timestamp">
-    Commented <%= time_ago_in_words(comment.created_at) %> ago.
-  </span>
-  <% if current_user?(comment.user) %>
-    <%= link_to "delete", comment, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: comment.content %>
-  <% end %>
 </div>
 </div>
