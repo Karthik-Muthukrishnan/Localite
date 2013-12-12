@@ -72,8 +72,9 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   line-height: 1.7em;
+  text-rendering: optimizeLegibility;
 }
 
 /* gravatar */
@@ -111,12 +112,9 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
+/* input, textarea, select, .uneditable-input {
   @include box_sizing;
-}
+} */
 
 input {
   height: auto !important;
@@ -147,6 +145,7 @@ input {
   padding-top: 15px;
   font-weight: bold;
   line-height: 1;
+  text-rendering: optimizeLegibility;
 }
 
 #logo:hover {
@@ -213,14 +212,20 @@ input {
 
 /* microposts */
 
+.lists{
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+}
+
 .posts {
   list-style: none;
   margin: 10px 0 0 0;
 
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
+  //li {
+  //  padding: 5px 0;
+  //  border-top: 1px solid #e8e8e8;
+  //}
 }
 .content {
   display: block;

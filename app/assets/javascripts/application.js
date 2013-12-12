@@ -10,13 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require foundation
-//= require turbolinks
-//= require_tree .
-$(function(){ $(document).foundation(); });
+//= require ../bower_components/foundation/js/vendor/jquery
+//= require ../bower_components/foundation/js/foundation
 
-$(function(){$(document).foundation('joyride', 'start');});
+$(function(){ $(document).foundation(); });
 
 

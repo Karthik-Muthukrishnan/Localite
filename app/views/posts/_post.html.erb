@@ -1,45 +1,46 @@
-
-<li>
+<li class="likes">
 <div class="row">
-	<div class="large-2 columns small-3">
+	
+  <div class="large-1 columns small-3">
     <%= link_to gravatar_for(post.user,size: 32), post.user %>
   
     
     </div>
-    <div class="large-10 columns">
+    <div class="large-11 columns">
     
-    <div>
     <p>  
-    <strong class="user">
+    <h5 class="user">
       <%= link_to post.user.name, post.user %> posted in <%= link_to post.bubble.name, post.bubble %> <%= time_ago_in_words(post.created_at) %> ago
-    </strong>
+    </h5>
+    <div id="post<%= post.id %>" class="right">
+    <%= render "posts/like_form", post: post %>
+ </div>
     </p>
     <p>
     <%= wrap(post.content) %>
     </p>
 
-  <div id="post1">
-    <ul class = "inline-list">
-      <li>
-      <% if @current_user.alreadyLike?(post) %>
-        <%= render 'posts/nolike', post: post %>
-      <% else %>
-        <%= render 'posts/like', post: post %>
-      <% end %>
-      </li>
-      <li>
-        <%= render "shared/post_stat", post: post %>
-      </li>
-    </ul>
- </div>
-<section>
-        <%= render partial: 'posts/comment', collection: Post.getComments(post) %>
+<dl class="accordion" data-accordion>
+  <dd>
+    
+    <a href="#comment<%= post.id %>">
+          <%= render "shared/post_stat", post: post %>
+        
+      </a>
+    
+    <div id="comment<%= post.id %>" class="content">
+        <section><%= render partial: 'posts/comment', collection: Post.getComments(post).reorder('created_at ASC') %>
 </section>
 
 <section>
-        <%= render 'shared/comment_form', post: post %>
+        <div class="large-12 columns"><%= render 'shared/comment_form', post: post %></div>
+        
    </section>
-</div>
+   </div>
+  </dd>
+</dl>
+
 </div>
 </div>
 </li>
+<li class="lists"></li>

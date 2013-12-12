@@ -1,0 +1,6 @@
+{
+  "name": "plocalite",
+  "dependencies": {
+    "foundation": "~5.0.2"
+  }
+}
