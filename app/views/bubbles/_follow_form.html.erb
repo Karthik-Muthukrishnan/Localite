@@ -1,7 +1,7 @@
   <div id="follow_form">
-  <% if @bubble.following?(current_user) %>
-    <%= render 'unfollow' %>
+  <% if bubble.following?(current_user) %>
+    <%= render 'bubbles/unfollow', bubble: bubble %>
   <% else %>
-    <%= render 'follow' %>
+    <%= render 'bubbles/follow', bubble: bubble %>
   <% end %>
   </div>

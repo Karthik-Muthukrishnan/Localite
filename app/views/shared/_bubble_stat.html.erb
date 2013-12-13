@@ -1,21 +1,15 @@
 <% @user ||= current_user %>
-<h1>
-        <%= @bubble.name %> <br> Pincode: <%= @bubble.pincode %>
-</h1>
+<h6>
+        <%= bubble.name %> <br> Pincode: <%= bubble.pincode %>
+</h6>
 <div class="stats">
   <p>
     <strong id="followers" class="stat">
-      <%= @bubble.users.count %>
+      <%= bubble.users.count %>
     </strong>
     followers
   </p>
   <p>
-	<strong class = "stat">
-	    <%= @bubble.posts.parentpost.count %> 
-	</strong>
-  posts
-  </p>
-  <p>
-    <%= render 'follow_form' if signed_in? %>
+    <%= render 'bubbles/follow_form', bubble: bubble if signed_in? %>
   </p>
 </div>

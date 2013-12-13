@@ -3,7 +3,15 @@ class BubblesController < ApplicationController
   
   
   def index
-  	@bubbles_all = Bubble.paginate(page: params[:page])
+  	if params[:query].present?
+      @bubbles_all = Bubble.search(params[:query], page: params[:page])
+    else
+     @bubbles_all = Bubble.paginate(page: params[:page])
+    end 
+
+    #@bubbles_all = Bubble.search("ambattur")
+
+    
   	@bubbles = current_user.bubbles
   end
   

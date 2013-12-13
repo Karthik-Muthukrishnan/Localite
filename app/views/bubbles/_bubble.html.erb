@@ -2,6 +2,7 @@
 <li class="lists"></li>
  <li>
  	<section  class= "section">
-    <strong><%= link_to bubble.name, bubble %></strong>, <%= bubble.district %>
-</section>
+   <strong><%= link_to bubble.name, bubble %></strong>, <%= bubble.district %>, <%= bubble.pincode %>,  <%= bubble.state %>
+</section> 
+<%= render "shared/bubble_stat", bubble: bubble %> 
 </li>

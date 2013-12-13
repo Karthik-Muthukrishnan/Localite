@@ -10,6 +10,7 @@ gem 'compass-rails','1.0.3'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.4'
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
+gem 'searchkick'
 
 
 # MySQL for development and test environments

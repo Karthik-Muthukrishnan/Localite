@@ -1,0 +1,14 @@
+<%= form_for(bubbles_path , method: "get") do |f| %>
+  <div class="large-8 columns">
+  	<%= text_field_tag :query, params[:query],placeholder: "Search using Pincode or Locality or both" %>
+
+ </div>
+ <div class="large-2 columns">			
+  <%= f.submit "Search", class: "tiny button radius" %>
+</div>	
+<div class="large-2 columns right">
+	<% if params[:query].present? %>
+		<%= link_to "clear", bubbles_path %>
+	<% end %>
+</div>
+<% end %>
